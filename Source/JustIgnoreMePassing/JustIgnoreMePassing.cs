@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Reflection;
+using HarmonyLib;
 using Verse;
 
 namespace JustIgnoreMePassing;
@@ -8,7 +9,6 @@ public static class JustIgnoreMePassing
 {
     static JustIgnoreMePassing()
     {
-        var harmony = new Harmony("net.pardeike.rimworld.mod.just-ignore-me-passing");
-        harmony.PatchAll();
+        new Harmony("net.pardeike.rimworld.mod.just-ignore-me-passing").PatchAll(Assembly.GetExecutingAssembly());
     }
 }
